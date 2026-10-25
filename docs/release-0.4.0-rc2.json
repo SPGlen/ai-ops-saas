@@ -1,0 +1,109 @@
+{
+  "version": "0.4.0-rc2",
+  "generated_at": "2026-10-24T12:58:27.546325+00:00",
+  "upgrades_from": "0.4.0-rc1",
+  "package_kind": "complete_source_archive",
+  "formal_delivery_accepted": false,
+  "instructions": "UPGRADE_0.4.0-rc2.txt",
+  "changes": "docs/changes-0.4.0-rc1-to-rc2.json",
+  "database_revision": "0006_deepseek",
+  "base_archive_sha256": "97bbb404a131d15145327f519681587ae75590fed3901b6c56338720f32c18b7",
+  "features": [
+    "DeepSeek official API adapter",
+    "Owner-only provider, model, credential and budget configuration",
+    "Frozen provider and usage-price snapshots",
+    "Input, cached input and output token accounting",
+    "Manual aggregate-only report analysis"
+  ],
+  "original_feature_acceptance": "docs/deepseek-acceptance.json; retains the original test-run evidence and timestamps",
+  "tests": {
+    "feature_backend_full": {
+      "tests": 172,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feature_browser": {
+      "passed": 3,
+      "failed": 0,
+      "flaky": 0
+    },
+    "full_browser": {
+      "passed": 24,
+      "failed": 2,
+      "skipped": 3,
+      "known_failures": "Two old tests expect the digital-human navigation link absent in the unchanged App.tsx baseline."
+    },
+    "packaged_provider_tests": 16,
+    "frontend_build": "passed after version update",
+    "archive_and_sqlite_upgrade_rehearsal": {
+      "status": "passed",
+      "candidate_version": "0.4.0-rc2",
+      "source": "extracted archives",
+      "base_manifest_verified": true,
+      "candidate_manifest_verified": true,
+      "runtime_dependencies_unchanged": true,
+      "version_consistent": true,
+      "sqlite_rehearsal": {
+        "sqlite_upgrade": "passed",
+        "usage_preserved": true,
+        "encrypted_integration_readable": true,
+        "object_preserved": true,
+        "repeat_startup_idempotent": true
+      },
+      "business_journals_unchanged": {
+        "ledger_entries": {
+          "count": 8,
+          "sha256": "86d360b1a8a9644ceaf34f821eb1b54b030f2ee7f80f04bdafe3d35ef0b0e322"
+        },
+        "credit_entries": {
+          "count": 8,
+          "sha256": "5d13d2289a346b7272b95923d1ebdc2b1a0d335d961a06cf608f53b054329157"
+        },
+        "audit_events": {
+          "count": 84,
+          "sha256": "cef43706d97fd7d646dc8d3d3194a8ff4df227ef1d75dfbb161bf9030426c6e2"
+        },
+        "content_versions": {
+          "count": 2,
+          "sha256": "8c7daefebb4ae2c1344a6d4fe9474f4751c3675359b324e8ffd934e5cba944e8"
+        },
+        "predictions": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "report_snapshots": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      "provider_tests_from_extracted_package": 16,
+      "real_supplier_calls": false,
+      "native_postgresql": false,
+      "docker_runtime": false
+    }
+  },
+  "external_acceptance": {
+    "real_deepseek_call": false,
+    "native_postgresql": false,
+    "docker_runtime": false,
+    "real_social_publication": false
+  },
+  "packaging": {
+    "runtime_dependencies_unchanged": true,
+    "publisher_unchanged": true,
+    "manual_pdf_included": true,
+    "secrets_and_runtime_data_included": false,
+    "source_manifest": "SOURCE_MANIFEST.json",
+    "external_checksum_file": "ai-ops-saas-0.4.0-rc2.zip.sha256"
+  },
+  "evidence_sha256": {
+    "rc2-packaged-provider-tests.xml": "1198dde2cd6f2f659b8c803e0c1d214f479a0e1ff05ceffa6d78d934139e9dcd",
+    "rc2-package-rehearsal.json": "75f2cf9e0e5cfd258fff044bfc21c83efaa03b59faaafb72878a93fec13f8533",
+    "deepseek-full-api-tests.xml": "c75bbb1a7f91181799e14524699906e3607751f0248d795d68ff55e776699ccd",
+    "deepseek-browser-report.json": "cc80bcfc24a447c3cec7f439b4294f9d36644f033323839e02ebe05f3e341263",
+    "deepseek-full-browser-report.json": "43d5a8089b814660a35c18321feab51a378204421d3c07ea5a0abf61dc715ac6",
+    "deepseek-migration-test.json": "7d70cc5e57408921cc612c4f738e2ddbe9f522953753bb4148486c6a816386bb",
+    "openapi.json": "0fb9263580beeea814ac5353e961a453cc38291096741937887c30e1d8441e22"
+  }
+}

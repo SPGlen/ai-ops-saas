@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "engine": "PGlite PostgreSQL WASM",
+  "native_postgresql": false,
+  "alembic_offline_sql": true,
+  "legacy_operator_migration": true,
+  "legacy_role_preserved": true,
+  "journal_preserved": true,
+  "rls_tables": 39,
+  "revision": "0003_operations"
+}

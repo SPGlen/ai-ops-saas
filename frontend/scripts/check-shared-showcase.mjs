@@ -1,0 +1,31 @@
+import { chromium, expect } from "@playwright/test";
+import fs from "node:fs/promises";import path from "node:path";
+const root=path.resolve(import.meta.dirname,"../..");
+const cfg=JSON.parse(await fs.readFile(path.join(root,".local/showcase-shared/current.json"),"utf8"));
+const browser=await chromium.launch();
+const context=await browser.newContext({viewport:{width:1440,height:900},locale:"zh-CN"});
+const page=await context.newPage();const errors=[];const challenges=[];page.on("response",response=>{if(response.headers()["www-authenticate"])challenges.push(response.url())});page.on("pageerror",e=>errors.push(e.message));
+try{
+ await page.goto(cfg.public_url,{waitUntil:"domcontentloaded",timeout:45000});
+ await expect(page.getByRole("heading",{name:"欢迎体验机构运营工作台",exact:true})).toBeVisible({timeout:20000});
+ await expect(page.getByRole("textbox",{name:"用户名",exact:true})).toHaveCount(0);
+ await page.getByLabel("演示访问码",{exact:true}).fill("incorrect-example-code");
+ await page.getByRole("button",{name:"验证并进入演示",exact:true}).click();
+ await expect(page.getByRole("alert")).toHaveText("访问码不正确，请核对后重试。");
+ await page.getByLabel("演示访问码",{exact:true}).fill(cfg.access_code);
+ await page.getByRole("button",{name:"验证并进入演示",exact:true}).click();
+ await expect(page.getByRole("button",{name:"机构负责人",exact:true})).toBeVisible({timeout:20000});
+ await page.getByRole("button",{name:"机构负责人",exact:true}).click();
+ await expect(page.getByRole("heading",{name:"一个工作台，看清一家机构的经营"})).toBeVisible({timeout:20000});
+ const cookies=await context.cookies();expect(cookies.find(c=>c.name==="ops_session")?.secure).toBe(true);
+ const gateCookie=cookies.find(c=>c.name==="ops_demo_access");expect(gateCookie?.secure).toBe(true);expect(gateCookie?.httpOnly).toBe(true);
+ await page.reload();await expect(page.getByRole("heading",{name:"一个工作台，看清一家机构的经营"})).toBeVisible({timeout:20000});
+ await page.screenshot({path:path.join(root,"docs/screenshots/showcase-external.png"),fullPage:true});
+ await page.getByRole("button",{name:"播放视频案例",exact:false}).click();
+ const video=page.locator("video");await video.evaluate(el=>el.play());await expect.poll(()=>video.evaluate(el=>el.currentTime)).toBeGreaterThan(.2);
+ await page.getByLabel("切换演示岗位").selectOption("teacher1.qinghe@zhiying.example");
+ await expect(page.getByRole("link",{name:"财务台账",exact:true})).toHaveCount(0);
+ if(errors.length)throw new Error(errors.join(";"));expect(challenges).toEqual([]);
+ await fs.writeFile(path.join(root,"docs/showcase-external-test.json"),JSON.stringify({verified_at:new Date().toISOString(),url:cfg.public_url,expires_at:cfg.expires_at,https:true,secure_cookie:true,normal_role_login:true,media_playback:true,teacher_scope:true,access_code_required:true,web_access_gate:true,bare_url_entry:true,native_auth_challenges:challenges.length,synthetic_data:true,real_calls:false,errors},null,2));
+ console.log("External bare URL, web access code, remembered access, video and role switching passed without HTTP Basic challenges.");
+}finally{await context.close();await browser.close();}

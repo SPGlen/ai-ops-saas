@@ -1,0 +1,6 @@
+ARG BASE_IMAGE=care-ops:0.4.0-rc2
+FROM ${BASE_IMAGE}
+USER root
+COPY backend/requirements-ocr.lock /tmp/requirements-ocr.lock
+RUN pip install --no-cache-dir --require-hashes -r /tmp/requirements-ocr.lock
+USER 10001:10001

@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-10-24T13:06:56.926845+08:00",
+  "decision": {
+    "existing_automation": true,
+    "migration_performed": false,
+    "configuration_imported": false,
+    "reason": "User condition: existing automation means do not migrate glen workflow. Existing product retained; differences audited only."
+  },
+  "source": {
+    "directory": "E:\\GZAIGC_KSX_CompanyProject\\Glens-self-media\\operations\\migration-glen-ai-ops-20261023",
+    "document_type": "migration_requirements_not_target_api_payload",
+    "manifest_checks": [
+      {
+        "file": "README.md",
+        "sha256": "d95681f808b906e61301c31ccca628d041ffc2fc6884d880f758083826b758d9",
+        "matches_manifest": true
+      },
+      {
+        "file": "GLEN_DAILY_CONTENT_PLAN.md",
+        "sha256": "52240b98d13368a080b6bfdaf27851454daf47fa6b112e09cf26c331657bca3a",
+        "matches_manifest": true
+      },
+      {
+        "file": "workflow.requirements.json",
+        "sha256": "45244d487d5215f4d695ff39aa11b709f686a433f7fd6bc623872add7dd4bee7",
+        "matches_manifest": true
+      }
+    ]
+  },
+  "schema_preflight": {
+    "checks": [
+      {
+        "case": "standard_10_topics",
+        "accepted": true,
+        "slot_count": 10,
+        "note": "Schema only. No plan, run, account or paid task was created."
+      },
+      {
+        "case": "stress_20_topics_single_plan",
+        "accepted": false,
+        "errors": [
+          {
+            "field": "times",
+            "type": "too_long"
+          }
+        ]
+      },
+      {
+        "case": "source_video_30_to_60_seconds",
+        "accepted": false,
+        "errors": [
+          {
+            "field": "min_video_seconds",
+            "type": "greater_than_equal"
+          }
+        ]
+      },
+      {
+        "case": "compatible_video_45_to_60_seconds",
+        "accepted": true,
+        "slot_count": 1,
+        "note": "Schema only. No plan, run, account or paid task was created."
+      },
+      {
+        "case": "stress_split_plan_1",
+        "accepted": true,
+        "slot_count": 10,
+        "note": "Schema only. No plan, run, account or paid task was created."
+      },
+      {
+        "case": "stress_split_plan_2",
+        "accepted": true,
+        "slot_count": 10,
+        "note": "Schema only. No plan, run, account or paid task was created."
+      }
+    ],
+    "times_max": 12,
+    "video_min": 45,
+    "timezone": {
+      "source": "2026-10-25T08:00:00+08:00",
+      "target": "2026-10-25T08:00:00+08:00",
+      "wall_clock_unchanged": true,
+      "date_is_illustrative_only": true
+    }
+  },
+  "requirement_counts": {
+    "standard": {
+      "mother_topics": 10,
+      "platform_tasks": 20
+    },
+    "stress": {
+      "mother_topics": 20,
+      "platform_tasks": 40
+    },
+    "scope": "Requirement expansion only, not queued jobs or throughput measurement."
+  },
+  "existing_features": [
+    {
+      "feature": "品牌、分组、账号明确路由与运行快照",
+      "evidence": [
+        "backend/app/matrix.py",
+        "backend/app/routes_matrix.py"
+      ]
+    },
+    {
+      "feature": "选题、分账号创作、媒体、盲评、审核、发布、指标与复盘",
+      "evidence": [
+        "backend/app/matrix_worker.py",
+        "backend/app/matrix.py"
+      ]
+    },
+    {
+      "feature": "可配置星期/时刻、账号、来源、预算、审核和制作方式",
+      "evidence": [
+        "backend/app/matrix_schemas.py",
+        "frontend/src/MatrixPage.tsx"
+      ]
+    },
+    {
+      "feature": "互动去重、人工接管、未知发送不重试的后端代码",
+      "status": "implemented_but_consultation_gated",
+      "evidence": [
+        "backend/app/social.py",
+        "backend/app/main.py",
+        "backend/tests/test_staff_social.py"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "customer_templates",
+      "detail": "没有可直接导入的10/20条客户模板；交接JSON是需求规格，不是目标API配置。"
+    },
+    {
+      "id": "twenty_slots",
+      "detail": "单计划最多12个时刻；20条只能先拆计划，未达到单计划完整支持。"
+    },
+    {
+      "id": "per_platform_offset",
+      "detail": "同一运行共用发布时间，尚无同母题抖音晚10分钟的字段。"
+    },
+    {
+      "id": "pre_generation",
+      "detail": "到时才创建运行，尚未提供提前制作与独立发布时间的完整衔接。"
+    },
+    {
+      "id": "video_duration",
+      "detail": "最短45秒；45–60秒可配置，30–60秒范围未完整支持。"
+    },
+    {
+      "id": "editorial_quotas",
+      "detail": "栏目配比、4–6张图和150–300字尚无交接所要求的结构化模板及硬校验，提示词不能代替验收。"
+    },
+    {
+      "id": "social_interactions",
+      "detail": "自媒体互动仍依赖已暂停的咨询开关，未交付独立08:00–23:00每10分钟轮询配置；小红书私信不可用，抖音互动需官方权限。"
+    },
+    {
+      "id": "matched_24h_72h",
+      "detail": "已有默认T+3指标及复盘，尚无配对24小时与72小时采样/统一龄期对比。"
+    },
+    {
+      "id": "education_specific_prompt",
+      "detail": "现有选题指令固定为教育机构及家长受众；通用AI科普客户模板需要同步适配提示词与评分规则，不能只换品牌名称。"
+    }
+  ],
+  "safety": {
+    "external_publish_attempted": false,
+    "external_reply_attempted": false,
+    "paid_model_calls": false,
+    "real_account_login_attempted": false,
+    "demo_restart_attempted": false,
+    "source_credentials_read": false,
+    "test_database": "pytest tmp_path SQLite, separate from product and showcase databases",
+    "socket_network_guard": "socket.connect blocked except standard-library socketpair for local event loops",
+    "blocked_connection_attempts": 0
+  },
+  "tests": {
+    "status": "passed",
+    "junit": "docs/self-media-audit-tests-20261024.xml",
+    "total": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 43.087,
+    "by_module": {
+      "test_matrix": 14,
+      "test_staff_social": 39,
+      "test_mcp": 6,
+      "test_showcase": 10
+    },
+    "exit_code": 0,
+    "network_guard": "socket.connect blocked except standard-library socketpair for local event loops",
+    "blocked_connection_attempts": 0,
+    "production_and_demo_databases_used": false
+  },
+  "environment_preservation": {
+    "status": "passed",
+    "existing_files_unchanged": 12,
+    "absent_sidecars_still_absent": 0,
+    "files": [
+      {
+        "file": ".env",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\ops.db",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase\\current.json",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase\\runs\\20261023-155330-b74132b1\\ops.db",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase-shared\\current.json",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase-shared\\runs\\20261023-154613-c0f203db\\ops.db",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\ops.db-wal",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\ops.db-shm",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase\\runs\\20261023-155330-b74132b1\\ops.db-wal",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase\\runs\\20261023-155330-b74132b1\\ops.db-shm",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase-shared\\runs\\20261023-154613-c0f203db\\ops.db-wal",
+        "exists": true,
+        "unchanged": true
+      },
+      {
+        "file": ".local\\showcase-shared\\runs\\20261023-154613-c0f203db\\ops.db-shm",
+        "exists": true,
+        "unchanged": true
+      }
+    ],
+    "service_not_restarted": true
+  },
+  "real_account_acceptance": {
+    "status": "not_performed",
+    "reason": "Separate test environment, verified identities/capabilities, approved budget and a fixed authorized plan version are still required."
+  },
+  "source_evidence": [
+    {
+      "file": "backend/app/matrix.py",
+      "sha256": "506d05576be4d6dc42c59388505eddf4464b510201d2523f4502c373bc9703bc"
+    },
+    {
+      "file": "backend/app/matrix_worker.py",
+      "sha256": "2b0a52ccca0650835fa14f3fc27f9280530a184957caec2a3f78da4c2f77d177"
+    },
+    {
+      "file": "backend/app/matrix_schemas.py",
+      "sha256": "7f436544a69352593c278f5cf7daeff841c64b43b54171f88b4ce245b30b9a67"
+    },
+    {
+      "file": "backend/app/matrix_agents.py",
+      "sha256": "0e22c1fa7d4e227a658cee55113dead8820bfc0f927995ce6afc362f6c052811"
+    },
+    {
+      "file": "backend/app/routes_matrix.py",
+      "sha256": "c45a3247cc133b0d232665fb5b01e162be26b74c8702f4c22505f397c6092ac0"
+    },
+    {
+      "file": "backend/app/social.py",
+      "sha256": "ffcb2f0f0913919047a4ab92a2fd09e625fa4dc31ca77a8392a569c4ed34456a"
+    },
+    {
+      "file": "backend/app/main.py",
+      "sha256": "52bee73bc168298aabf33bf163a91dbd84102ac7b0eabc01351e9cdd8c60cef7"
+    },
+    {
+      "file": "frontend/src/MatrixPage.tsx",
+      "sha256": "f28f1568a5ad79a46b608a57981d26a17bacf491f1f8199d555c98355a5c6dcf"
+    }
+  ],
+  "preview_health": {
+    "url": "http://127.0.0.1:8188/api/v1/health",
+    "status": "unreachable",
+    "exception_type": "URLError",
+    "checked_at": "2026-10-24T13:10:07.913531+08:00",
+    "note": "No demo service restart or fixture reset was attempted."
+  }
+}

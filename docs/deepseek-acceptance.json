@@ -1,0 +1,74 @@
+{
+  "feature": "deepseek-text-agent",
+  "generated_at": "2026-10-24T10:49:43.099703+00:00",
+  "formal_delivery_accepted": false,
+  "backend": {
+    "tests": 172,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_provider_tests": 16,
+  "browser_feature": {
+    "passed": 3,
+    "failed": 0,
+    "flaky": 0
+  },
+  "full_browser": {
+    "passed": 24,
+    "failed": 2,
+    "skipped": 3,
+    "known_failures": "Two old tests expect the digital-human navigation link absent in the unchanged App.tsx baseline."
+  },
+  "migration": {
+    "status": "passed",
+    "revision": "0006_deepseek",
+    "engine": "PGlite PostgreSQL WASM",
+    "native_postgresql": false,
+    "rls_tables": 48,
+    "legacy_usage_preserved": true,
+    "tenant_isolation": true
+  },
+  "sqlite_upgrade": {
+    "status": "passed",
+    "integrity": "ok",
+    "business_journals_preserved": {
+      "ledger_entries": 22,
+      "credit_entries": 21,
+      "audit_events": 170
+    }
+  },
+  "dependency_check": "pip check passed; no new dependencies or lock changes; no new vulnerability database scan",
+  "frontend_build": "passed",
+  "preview": "http://127.0.0.1:8188/#settings",
+  "real_deepseek_api": false,
+  "real_aliyun_media": false,
+  "native_postgresql": false,
+  "protocol_testing": "Installed OpenAI SDK with httpx.MockTransport, no real supplier calls.",
+  "behavior": {
+    "encrypted_tenant_keys": true,
+    "explicit_platform_or_byok": true,
+    "frozen_routing_and_prices": true,
+    "input_cache_output_usage": true,
+    "permission_checks": true,
+    "no_paid_retry_on_unknown": true,
+    "manual_aggregate_report_analysis": true,
+    "automatic_ai_reports_enabled_by_default": false,
+    "media_vision_embeddings_independent": true
+  },
+  "evidence_sha256": {
+    "deepseek-full-api-tests.xml": "c75bbb1a7f91181799e14524699906e3607751f0248d795d68ff55e776699ccd",
+    "deepseek-browser-report.json": "cc80bcfc24a447c3cec7f439b4294f9d36644f033323839e02ebe05f3e341263",
+    "deepseek-full-browser-report.json": "43d5a8089b814660a35c18321feab51a378204421d3c07ea5a0abf61dc715ac6",
+    "deepseek-migration-test.json": "7d70cc5e57408921cc612c4f738e2ddbe9f522953753bb4148486c6a816386bb",
+    "migration-upgrade-0006.sql": "2409c234c542aadcdcfdcb492305e46b91fa284a6b411b0f2ef17b68c15f228c",
+    "openapi.json": "5e518ed0c2388074df8cd48b11373953ae696553608c13a8db38621a8fba918f",
+    "deepseek-tests.xml": "4624fdccafc3bdb7c074520ec30bb1213bdb23df1f822bd939848eff63d51a19"
+  },
+  "provider_regression_after_final_changes": {
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

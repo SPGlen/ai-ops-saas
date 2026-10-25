@@ -1,0 +1,9 @@
+{
+  "name": "cloudflared",
+  "version": "2026.10.3",
+  "url": "https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-windows-amd64.exe",
+  "sha256": "76b2805253d0d6ffacb092a7acfbee99e7af6917835c0c5410e23f3ef5052da2",
+  "source": "https://github.com/cloudflare/cloudflared/releases/tag/2026.10.3",
+  "purpose": "Optional expiring HTTPS demonstration tunnel; not a production deployment",
+  "license": "Apache-2.0"
+}

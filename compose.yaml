@@ -1,0 +1,154 @@
+name: care-ops
+x-app: &app
+  image: ${OPS_APP_IMAGE:-care-ops:0.4.0-rc2}
+  build: .
+  restart: unless-stopped
+  user: "10001:10001"
+  read_only: true
+  tmpfs: ["/tmp:rw,nosuid,size=512m"]
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  mem_limit: 2g
+  pids_limit: 128
+  environment: &environment
+    OPS_ENVIRONMENT: production
+    OPS_DATABASE_URL: postgresql+psycopg://ops_app:${OPS_DB_PASSWORD:?configure secrets}@db:5432/ops
+    OPS_SECRET_KEY: ${OPS_SECRET_KEY:?configure secrets}
+    OPS_PUBLIC_URL: ${OPS_PUBLIC_URL:?configure HTTPS URL}
+    OPS_TASK_MODE: celery
+    OPS_BROKER_URL: redis://:${OPS_VALKEY_PASSWORD:?configure secrets}@valkey:6379/0
+    OPS_OCR_ENABLED: ${OPS_OCR_ENABLED:-false}
+    OPS_DATA_DIR: /srv/ops/.local
+    OPS_SMTP_HOST: ${OPS_SMTP_HOST:?configure SMTP}
+    OPS_SMTP_PORT: ${OPS_SMTP_PORT:-587}
+    OPS_SMTP_USER: ${OPS_SMTP_USER:-}
+    OPS_SMTP_PASSWORD: ${OPS_SMTP_PASSWORD:-}
+    OPS_SMTP_FROM: ${OPS_SMTP_FROM:?configure sender}
+    OPS_S3_ENDPOINT: ${OPS_S3_ENDPOINT:-}
+    OPS_S3_BUCKET: ${OPS_S3_BUCKET:?configure private bucket}
+    OPS_S3_REGION: ${OPS_S3_REGION:-cn-hangzhou}
+    OPS_S3_ACCESS_KEY: ${OPS_S3_ACCESS_KEY:-}
+    OPS_S3_SECRET_KEY: ${OPS_S3_SECRET_KEY:-}
+    OPS_TEXT_PROVIDER: ${OPS_TEXT_PROVIDER:-aliyun}
+    OPS_DEEPSEEK_API_KEY: ${OPS_DEEPSEEK_API_KEY:-}
+    OPS_DEEPSEEK_MODEL: ${OPS_DEEPSEEK_MODEL:-deepseek-flash}
+    OPS_ALIYUN_API_KEY: ${OPS_ALIYUN_API_KEY:-}
+    OPS_ALIYUN_BASE_URL: ${OPS_ALIYUN_BASE_URL:-https://dashscope.aliyuncs.com}
+    OPS_ALIYUN_TEXT_BASE_URL: ${OPS_ALIYUN_TEXT_BASE_URL:-}
+    OPS_TEXT_MODEL: ${OPS_TEXT_MODEL:-qwen-plus}
+    OPS_SCORE_MODEL: ${OPS_SCORE_MODEL:-qwen3-vl-plus}
+    OPS_REVIEW_MODEL: ${OPS_REVIEW_MODEL:-qwen-max}
+    OPS_VIDEO_MODEL: ${OPS_VIDEO_MODEL:-wan2.7-t2v-2026-06-12}
+    OPS_PUBLISHER_URL: ${OPS_PUBLISHER_URL:-}
+    OPS_PUBLISHER_TOKEN: ${OPS_PUBLISHER_TOKEN:-}
+    OPS_MATRIX_SOURCE_HOSTS: ${OPS_MATRIX_SOURCE_HOSTS:-}
+    OPS_MATRIX_MAX_RUNNING: ${OPS_MATRIX_MAX_RUNNING:-2}
+    OPS_ALLOW_LIVE_PUBLISH: ${OPS_ALLOW_LIVE_PUBLISH:-false}
+  networks: [application, egress]
+  depends_on:
+    db: {condition: service_healthy}
+    valkey: {condition: service_healthy}
+    migrate: {condition: service_completed_successfully}
+services:
+  db:
+    image: ${OPS_POSTGRES_IMAGE:-pgvector/pgvector:pg17@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: ops
+      POSTGRES_PASSWORD: ${OPS_DB_ROOT_PASSWORD:?configure secrets}
+      OPS_MIGRATION_PASSWORD: ${OPS_MIGRATION_PASSWORD:?configure secrets}
+      OPS_DB_PASSWORD: ${OPS_DB_PASSWORD:?configure secrets}
+    volumes: ["postgres_data:/var/lib/postgresql/data", "./deploy/init-db.sh:/docker-entrypoint-initdb.d/10-roles.sh:ro"]
+    networks: [application]
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U postgres -d ops"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    mem_limit: 2g
+  valkey:
+    image: ${OPS_VALKEY_IMAGE:-valkey/valkey:8-alpine@sha256:081c2f5cb575efc901aa80ff9cdbd1ec6a301682fd35e1ebb4b0990a4a4a8507}
+    restart: unless-stopped
+    environment: {VALKEY_PASSWORD: "${OPS_VALKEY_PASSWORD:?configure secrets}"}
+    command: ["/bin/sh","-c",'exec valkey-server --appendonly yes --requirepass "$$VALKEY_PASSWORD"']
+    volumes: ["valkey_data:/data"]
+    networks: [application]
+    healthcheck:
+      test: ["CMD-SHELL",'VALKEYCLI_AUTH="$$VALKEY_PASSWORD" valkey-cli ping']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    mem_limit: 512m
+  migrate:
+    image: ${OPS_APP_IMAGE:-care-ops:0.4.0-rc2}
+    build: .
+    restart: "no"
+    command: ["alembic","-c","backend/alembic.ini","upgrade","head"]
+    environment:
+      OPS_MIGRATION_DATABASE_URL: postgresql+psycopg://ops_migrator:${OPS_MIGRATION_PASSWORD:?configure secrets}@db:5432/ops
+    networks: [application]
+    depends_on: {db: {condition: service_healthy}}
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  backend:
+    <<: *app
+    command: ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000","--no-access-log","--proxy-headers","--forwarded-allow-ips=${OPS_EDGE_IP:-10.215.88.10}"]
+    volumes: ["runtime_data:/srv/ops/.local"]
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health',timeout=3)"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    expose: ["8000"]
+  worker:
+    <<: *app
+    command: ["celery","-A","app.worker.celery","worker","--loglevel=WARNING","--concurrency=2","-Q","ops"]
+    volumes: ["worker_data:/srv/ops/.local"]
+    stop_grace_period: 180s
+    mem_limit: 4g
+  ocr-worker:
+    <<: *app
+    profiles: [ocr]
+    environment:
+      <<: *environment
+      HOME: /srv/ops/.local
+      XDG_CACHE_HOME: /srv/ops/.local/cache
+      OMP_NUM_THREADS: 2
+      MKL_NUM_THREADS: 2
+    image: ${OPS_OCR_IMAGE:-care-ops-ocr:0.4.0-rc2}
+    build: {context: ., dockerfile: deploy/Dockerfile.ocr}
+    command: ["celery","-A","app.worker.celery","worker","--loglevel=WARNING","--concurrency=1","-Q","ocr"]
+    mem_limit: 6g
+    volumes: ["ocr_data:/srv/ops/.local"]
+  beat:
+    <<: *app
+    command: ["celery","-A","app.worker.celery","beat","--loglevel=WARNING","--schedule=/srv/ops/.local/celerybeat"]
+    volumes: ["beat_data:/srv/ops/.local"]
+    mem_limit: 512m
+  edge:
+    image: ${OPS_CADDY_IMAGE:-caddy:2-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f}
+    restart: unless-stopped
+    ports: ["80:80","443:443","443:443/udp"]
+    environment: {OPS_DOMAIN: "${OPS_DOMAIN:?configure domain}"}
+    volumes: ["./deploy/Caddyfile:/etc/caddy/Caddyfile:ro","caddy_data:/data","caddy_config:/config"]
+    networks:
+      application: {ipv4_address: "${OPS_EDGE_IP:-10.215.88.10}"}
+      egress: {}
+    depends_on: {backend: {condition: service_healthy}}
+    mem_limit: 256m
+networks:
+  application:
+    internal: true
+    ipam:
+      config: [{subnet: "${OPS_APPLICATION_SUBNET:-10.215.88.0/24}"}]
+  egress: {}
+volumes:
+  postgres_data: {}
+  valkey_data: {}
+  runtime_data: {}
+  worker_data: {}
+  beat_data: {}
+  ocr_data: {}
+  caddy_data: {}
+  caddy_config: {}

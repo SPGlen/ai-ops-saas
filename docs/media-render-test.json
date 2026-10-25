@@ -1,0 +1,1 @@
+{"status": "passed", "input": "synthetic color clip and silent WAV; no model service called", "video_duration": "5.000000", "audio_stream_present": true, "output_bytes": 25207, "cover_bytes": 16018, "checks": ["subtitles and brand overlays compiled", "two-second brand ending appended", "audio track muxed", "cover generated"]}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "revision": "0006_deepseek",
+  "engine": "PGlite PostgreSQL WASM",
+  "native_postgresql": false,
+  "rls_tables": 48,
+  "legacy_usage_preserved": true,
+  "tenant_isolation": true
+}

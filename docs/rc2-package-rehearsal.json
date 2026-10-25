@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "candidate_version": "0.4.0-rc2",
+  "source": "extracted archives",
+  "base_manifest_verified": true,
+  "candidate_manifest_verified": true,
+  "runtime_dependencies_unchanged": true,
+  "version_consistent": true,
+  "sqlite_rehearsal": {
+    "sqlite_upgrade": "passed",
+    "usage_preserved": true,
+    "encrypted_integration_readable": true,
+    "object_preserved": true,
+    "repeat_startup_idempotent": true
+  },
+  "business_journals_unchanged": {
+    "ledger_entries": {
+      "count": 8,
+      "sha256": "86d360b1a8a9644ceaf34f821eb1b54b030f2ee7f80f04bdafe3d35ef0b0e322"
+    },
+    "credit_entries": {
+      "count": 8,
+      "sha256": "5d13d2289a346b7272b95923d1ebdc2b1a0d335d961a06cf608f53b054329157"
+    },
+    "audit_events": {
+      "count": 84,
+      "sha256": "cef43706d97fd7d646dc8d3d3194a8ff4df227ef1d75dfbb161bf9030426c6e2"
+    },
+    "content_versions": {
+      "count": 2,
+      "sha256": "8c7daefebb4ae2c1344a6d4fe9474f4751c3675359b324e8ffd934e5cba944e8"
+    },
+    "predictions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "report_snapshots": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "provider_tests_from_extracted_package": 16,
+  "real_supplier_calls": false,
+  "native_postgresql": false,
+  "docker_runtime": false
+}

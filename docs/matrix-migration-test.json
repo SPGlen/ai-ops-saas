@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "engine": "PGlite PostgreSQL WASM",
+  "native_postgresql": false,
+  "rls_tables": 48,
+  "revision": "0005_media_matrix",
+  "legacy_drafts_migrated": true,
+  "journals_preserved": true,
+  "cross_tenant_fk_blocked": true,
+  "rls_isolation": true,
+  "immutable_plan_versions": true
+}

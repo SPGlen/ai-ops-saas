@@ -1,0 +1,1250 @@
+{
+  "config": {
+    "argv": [
+      "E:\\Tools\\node-v24.17.0-win-x64\\node.exe",
+      "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\playwright.config.ts",
+    "rootDir": "E:/GZAIGC_KSX_CompanyProject/Commercial/ai-ops-saas/frontend/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/GZAIGC_KSX_CompanyProject/Commercial/ai-ops-saas/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/GZAIGC_KSX_CompanyProject/Commercial/ai-ops-saas/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../docs/e2e-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "deepseek.spec.ts",
+      "file": "deepseek.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "DeepSeek：负责人配置独立凭证、模型、费用来源并持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1361,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:41:50.831Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "edd39224d26447809452-705ea73bcb23787ca55f",
+          "file": "deepseek.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "DeepSeek：授课员工无法看到模型配置或机构凭证",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:41:52.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "edd39224d26447809452-b851bd48362bc39e3b55",
+          "file": "deepseek.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "management.spec.ts",
+      "file": "management.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "负责人可视化授权，教师兼任营收仍只见本人学员",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:41:52.754Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a9916703f81b98e496f1-87af699a7764ef1b3a51",
+          "file": "management.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "营收查看与排班账号分别显示获授权功能",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1055,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:41:59.243Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a9916703f81b98e496f1-84d4959006c71c7c2447",
+          "file": "management.spec.ts",
+          "line": 72,
+          "column": 1
+        },
+        {
+          "title": "登记家长反馈并汇入周报与不可覆盖快照",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:00.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a9916703f81b98e496f1-0d5667cd89d36ca8c3cf",
+          "file": "management.spec.ts",
+          "line": 100,
+          "column": 1
+        },
+        {
+          "title": "财务流水可关联票据并查看原件与订单图表",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 992,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:01.719Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a9916703f81b98e496f1-7efa3fceefd9bcf5129f",
+          "file": "management.spec.ts",
+          "line": 156,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "matrix.spec.ts",
+      "file": "matrix.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "矩阵：负责人配置品牌、同平台双账号、分组和版本化计划",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:02.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7066e7f2e0ac7d296410-b4c0d23be2d3e1ee4607",
+          "file": "matrix.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "矩阵：教师无菜单且直接访问被拒绝",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:04.861Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7066e7f2e0ac7d296410-4924a384aaab4e0ad989",
+          "file": "matrix.spec.ts",
+          "line": 87,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "operations.spec.ts",
+      "file": "operations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "周报月报、财务图表和票据详情真实读取",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1601,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:05.292Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-4d43a67f59a46382d608",
+          "file": "operations.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "可视化表单设计、发布和填写持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1420,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:06.901Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-856831bb9024734a4423",
+          "file": "operations.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "多人招生页面五秒内刷新新记录",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:08.333Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-de2d80571fdd3d436efa",
+          "file": "operations.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "数字人付费申请和移动端报表不宣称已开播",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60066,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\operations.spec.ts",
+                        "column": 6,
+                        "line": 109
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: '数字人直播（增值）', exact: true })\u001b[22m\n\n\n  107 |   await page\n  108 |     .getByRole(\"link\", { name: \"数字人直播（增值）\", exact: true })\n> 109 |     .click();\n      |      ^\n  110 |   await expect(page.getByText(\"待接入\", { exact: true })).toBeVisible();\n  111 |   await page.getByLabel(\"机构需求\", { exact: true }).fill(\"视频号课程介绍直播\");\n  112 |   await page\n    at E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\operations.spec.ts:109:6"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:42:10.941Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\test-results\\operations-数字人付费申请和移动端报表不宣称已开播-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\test-results\\operations-数字人付费申请和移动端报表不宣称已开播-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-72c42155f634bcbe1f5f",
+          "file": "operations.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "可视化流程画布、发布及审批待办完成",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1515,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:11.429Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-8f21754cb0ee10bf658e",
+          "file": "operations.spec.ts",
+          "line": 131,
+          "column": 1
+        },
+        {
+          "title": "招生Excel上传、全列核对和确认导入不自动记账",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4281,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:13.023Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8fd72df7d8ab107a64-15dd8e561207c44d85ba",
+          "file": "operations.spec.ts",
+          "line": 180,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "showcase.spec.ts",
+      "file": "showcase.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "企业演示验收",
+          "file": "showcase.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "负责人可直接体验经营成果、票据与内容案例",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "仅在独立企业演示数据库上执行",
+                      "location": {
+                        "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                        "line": 4,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-24T10:43:17.311Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "仅在独立企业演示数据库上执行",
+                          "location": {
+                            "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                            "line": 4,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2f1ae81d15afdf42afa9-24b42713fffdd651186c",
+              "file": "showcase.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "切换授课岗位后，入口与数据范围同时收缩",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "仅在独立企业演示数据库上执行",
+                      "location": {
+                        "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                        "line": 4,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-24T10:43:17.312Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "仅在独立企业演示数据库上执行",
+                          "location": {
+                            "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                            "line": 4,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2f1ae81d15afdf42afa9-de9df7dfe6d79d67ccd7",
+              "file": "showcase.spec.ts",
+              "line": 44,
+              "column": 3
+            },
+            {
+              "title": "移动端可进入演示、切换身份并查看成品",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "仅在独立企业演示数据库上执行",
+                      "location": {
+                        "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                        "line": 4,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "desktop",
+                  "projectName": "desktop",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-24T10:43:17.312Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "仅在独立企业演示数据库上执行",
+                          "location": {
+                            "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\showcase.spec.ts",
+                            "line": 4,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2f1ae81d15afdf42afa9-abfb57414db7728b6614",
+              "file": "showcase.spec.ts",
+              "line": 57,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "social.spec.ts",
+      "file": "social.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "咨询暂停后，自媒体连接和周期内容仍可维护",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:17.331Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3bd26b923e159664f17e-9fd2e5f483ecba92ae5a",
+          "file": "social.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "staff.spec.ts",
+      "file": "staff.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "教师只见本班学生，隐藏招生财务和内容入口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:17.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2545a61da953aa54eb88-ef093300655b6f1c4af7",
+          "file": "staff.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "招生看本人线索和订单，不能登记收退款",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 589,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:18.316Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2545a61da953aa54eb88-847dd1bf4625b50a019f",
+          "file": "staff.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "财务和兼任岗位保留模块边界",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:18.912Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2545a61da953aa54eb88-c71619ba5875c0391756",
+          "file": "staff.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "机构负责人邀请新员工，接受后不创建新机构",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1055,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:19.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2545a61da953aa54eb88-bcb7022c35ebb0ca48a6",
+          "file": "staff.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "未接通的平台能力保留真实人工处理入口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 422,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:20.370Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2545a61da953aa54eb88-a0732af1ca08309f88e2",
+          "file": "staff.spec.ts",
+          "line": 117,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "workflows.spec.ts",
+      "file": "workflows.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "真实表单保存：家长预约进入招生线索",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:20.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-5eb42f690ef51b64b2ed",
+          "file": "workflows.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "机构隔离、内容保存和桌面工作台",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:21.501Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-58fed826c5a50523279a",
+          "file": "workflows.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "咨询暂停：公开入口与员工入口隐藏，接口禁止产生新会话",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 430,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:22.439Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-22e9351637cb32b457bd",
+          "file": "workflows.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "报名收款、开通课时、重复签到和部分退款",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:22.875Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-6957c6b784156d3aa678",
+          "file": "workflows.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "移动端导航、公开入口与空数据状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 670,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:24.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-538951134d1c22d77110",
+          "file": "workflows.spec.ts",
+          "line": 163,
+          "column": 1
+        },
+        {
+          "title": "关键页面与离线接口文档正常加载",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60106,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\workflows.spec.ts",
+                        "column": 64,
+                        "line": 210
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: '数字人直播（增值）', exact: true })\u001b[22m\n\n\n  208 |     \"平台管理\",\n  209 |   ]) {\n> 210 |     await page.getByRole(\"link\", { name: label, exact: true }).click();\n      |                                                                ^\n  211 |     await expect(page.getByRole(\"heading\", { level: 1 }).first()).toBeVisible();\n  212 |     await expect(\n  213 |       page.getByText(\"请检查必填字段和格式\", { exact: true }),\n    at E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\tests\\workflows.spec.ts:210:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T10:43:25.563Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\test-results\\workflows-关键页面与离线接口文档正常加载-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\GZAIGC_KSX_CompanyProject\\Commercial\\ai-ops-saas\\frontend\\test-results\\workflows-关键页面与离线接口文档正常加载-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "26aa48cee8983222f549-8d78a5c80d4b14bff3cc",
+          "file": "workflows.spec.ts",
+          "line": 194,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T10:41:50.351Z",
+    "duration": 155453.87900000002,
+    "expected": 24,
+    "skipped": 3,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

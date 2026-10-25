@@ -1,0 +1,123 @@
+知营 · AI辅助教育机构经营工作台
+0.4.0-rc1 → 0.4.0-rc2 完整源码更新说明
+发布日期：2026-10-24
+
+一、这个包是什么
+
+这是完整源码更新包，不是只包含几个文件的差量补丁，也不是免安装的可执行程序。
+解压后根目录仍为 ai-ops-saas。包含 DeepSeek 适配、负责人配置界面、计费与用量记录、报表 AI 解读、数据库迁移、依赖锁文件、部署文件、手册及验收记录。
+不包含任何真实 API Key、.env、.env.production、业务数据库、上传文件、账号 Cookie、浏览器登录状态、.venv 或 node_modules。
+
+如果同事尚未运行过旧包、没有自己的数据：直接使用本包，按 README.md 的“本地使用”安装启动即可，无须安装旧包。
+如果旧包已经运行或录入数据：先按下面步骤备份、保留配置，再更新；不要用新建演示库覆盖旧数据。
+
+二、本次更新
+
+1. 机构负责人可在“机构与连接”独立保存 DeepSeek Key，并配置文字智能体供应商、模型、费用来源、思考模式和输出长度。
+2. 支持 deepseek-flash 与 deepseek-v4-pro；Key 按机构加密，前端不回显。
+3. 文字任务可使用 DeepSeek；图片、视频、配音、向量检索、视觉盲评及独立复核仍使用百炼。矩阵计划的费用来源保持按计划明确选择，不会自动换 Key。
+4. 新任务固定模型及计价快照，记录输入、输出、缓存 Token，按配置单价估算费用；超时结果不明时停止自动重发。
+5. 负责人可打开历史周报/月报快照，按需生成独立的 AI 经营解读。仅发送汇总数据；不自动开启每周、每月的额外 AI 扣费。
+6. 保留当前工作区的企业演示材料和使用手册。数字人直播仍待接入，主菜单当前隐藏；客服及互动自动回复保持暂停。
+7. 应用、前端及应用/OCR镜像版本更新为 0.4.0-rc2。独立发布节点代码与旧包一致，继续使用其 0.4.0-rc1 镜像。
+
+依赖版本保持不变；前端锁文件只有本项目版本号变化。无需新增 DeepSeek SDK，继续使用已经锁定的服务端 OpenAI 兼容 SDK。
+数据库从 0005_media_matrix 升级为 0006_deepseek，新增 usage_records.model_usage 元数据列。历史用量和金额不重新计算。
+详细文件差异见 docs/changes-0.4.0-rc1-to-rc2.json。
+
+三、已运行的 Windows 本地环境
+
+1. 先停止旧应用、Worker、定时调度和发布中的新任务，保存旧目录及原始 0.4.0-rc1 ZIP。
+2. 在旧工程中使用旧虚拟环境备份：
+
+   .\.venv\Scripts\python.exe scripts\backup.py --directory .local\backups\before-0.4.0-rc2
+
+   记下输出的 backup_directory。这是包含 manifest.json 的实际备份目录。
+   单独妥善保存旧 .env、可能存在的 .env.production 和原 OPS_SECRET_KEY。备份脚本不包含主密钥。
+   如使用私有对象存储，备份清单不等同于已经复制对象；保留对象桶、版本和访问配置。
+
+3. 将新 ZIP 解压到另一个目录，暂时保留旧工程完整内容。进入新 ai-ops-saas 目录。
+4. 复制原 .env 到新工程。必须保留原 OPS_SECRET_KEY，否则旧凭证和加密信息无法解密。
+   检查 OPS_DATABASE_URL、OPS_DATA_DIR、OPS_PROJECT_ROOT、OPS_OCR_PYTHON 等是否包含旧机器或旧目录的绝对路径。
+   路径按同事机器实际情况修改；域名、数据库连接、对象存储和发布网关配置沿用原值。
+5. 在新工程准备依赖并构建前端：
+
+   python -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -r backend\requirements.lock
+   .\.venv\Scripts\python.exe -m pip install --no-deps -e .\backend
+   npm ci --prefix frontend
+   npm run build --prefix frontend
+
+   使用与旧环境兼容的 Python/Node 运行时；生产镜像已固定 Python 3.12 与 Node 24。
+   新目录应重新建立 .venv；不要复制旧虚拟环境或 node_modules。
+
+6. 如果把 SQLite 数据迁到新目录，用已校验的备份恢复到新的、尚不存在的数据库路径：
+
+   .\.venv\Scripts\python.exe scripts\restore.py "实际 backup_directory" --sqlite-destination ".local\ops.db"
+
+   恢复工具拒绝覆盖已存在的目标文件。
+   把备份的 objects 目录复制到实际 OPS_DATA_DIR 下的 objects 目录；默认是 .local\data\objects。
+   将 .env 中的 SQLite 连接指向恢复后的数据库。若原数据库/对象目录放在独立的持久目录，也可保持原路径，但升级前同样要备份，并确保旧程序已停止。
+   首次启动前不要运行 demo 初始化来替代恢复。
+   发布节点的账号状态在其独立数据目录/卷中保留，按原发布节点配置使用，不随源码包迁移。
+
+7. 启动更新后的应用：
+
+   $env:OPS_PUBLIC_URL="http://127.0.0.1:8188"
+   .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8188 --no-access-log
+
+   开发 SQLite 会在启动时补充新列，不需要手工执行全量建库 SQL。
+   如果原环境还有发布网关、Worker 或其他服务，按原方式启动，并核对其配置。
+
+8. 打开 http://127.0.0.1:8188/#settings，用机构负责人账号检查原学员、订单、票据、课时、成员和账号配置，再接入 DeepSeek。
+
+四、已运行的 Docker / PostgreSQL 环境
+
+先用原部署的运维账户备份 PostgreSQL 和对象存储，并单独保留原配置与加密主密钥。在恢复库中演练升级后再处理实际业务库。
+在原部署路径更新源码，保留 .env.production、数据库/队列/对象存储命名卷；不要删除卷。
+若迁移目录或修改 Compose 项目名，必须显式沿用原项目/卷，避免误启动一个空数据库。
+
+默认应用镜像是 care-ops:0.4.0-rc2，OCR 镜像是 care-ops-ocr:0.4.0-rc2。
+如果原 .env.production 设置了 OPS_APP_IMAGE、OPS_OCR_IMAGE，按实际构建/镜像仓库更新，不能继续覆盖为旧镜像标签。
+
+在已有正确 .env.production 的工程根目录执行：
+
+   docker compose --env-file .env.production stop backend worker beat
+   docker compose --env-file .env.production build backend
+   docker compose --env-file .env.production run --rm migrate
+   docker compose --env-file .env.production run --rm migrate alembic -c backend/alembic.ini current
+   docker compose --env-file .env.production up -d
+
+迁移版本应显示 0006_deepseek (head)。已有库用 Alembic 升级；docs/migration-upgrade-0006.sql 是全链建库审查文件，不要重复执行到已有业务库。
+启用了 OCR profile 时，应先一并停用 ocr-worker，构建新版基础应用镜像后重建 OCR 镜像，并使用 --profile ocr 恢复 ocr-worker。
+API、普通 Worker、OCR Worker 和 Beat 应使用匹配的新应用版本。独立发布节点本次无需重建。
+部署后核对 /api/v1/health、/api/openapi.json、原业务记录和后台任务状态。
+
+五、配置 DeepSeek
+
+最方便的本地联调方式：
+
+1. DeepSeek 开放平台创建 API Key，确保账户可调用并有余额。
+2. 机构负责人 → 机构与连接 → 服务连接 → DeepSeek 官方 API → 保存 Key。
+3. 同页 AI 模型配置 → DeepSeek 官方 API → deepseek-flash → 机构自带 Key → 保存 AI 配置。
+4. 检查预算估算单价，点击“测试连接”。测试会真实消耗少量 Token。
+5. 再创建一条内容任务/报表解读核对结果与用量。AIGC 视频、配音、图片和视觉评分仍需要对应百炼配置。
+
+如果由平台统一出资，在服务端配置 OPS_DEEPSEEK_API_KEY；OPS_DEEPSEEK_MODEL 默认 deepseek-flash，OPS_TEXT_PROVIDER 默认 aliyun，可按需要明确设为 deepseek。
+负责人仍需选择平台额度；平台管理员配置对应模型计价及机构 text_tokens、cost_fen 额度。配置生成器不会覆盖已有 .env.production，旧文件中缺少的新字段需由部署人员补充。
+不要把真实 Key 发进聊天、写进前端或重新分发的更新包。
+
+六、检查与回退
+
+- 运行 /api/openapi.json 应看到 info.version 为 0.4.0-rc2，并包含 /api/v1/ai-settings 和 /api/v1/ai-settings/test。
+- 原学员、财务流水、票据、课时、机构与成员保持可用；两个机构的数据仍隔离。
+- 机构员工不能访问负责人模型配置；Key 不回显。
+- 先通过真实连接测试，再启用需要付费调用的业务；自动发布仍需原账号授权及发布开关。
+- 需要回退时先停止新版本，保存升级后新增记录；使用匹配的旧源码、原主密钥及已验证数据库/对象备份恢复到单独的目标后核验，不对实际库直接运行破坏性 downgrade。
+
+七、验收范围
+
+本轮已有后端172项测试通过，DeepSeek专项16项及浏览器专项3项通过，前端构建通过。SQLite 升级与 PGlite PostgreSQL WASM 迁移已验证。
+全量浏览器回归24项通过、2项旧数字人菜单用例失败、3项企业演示专用用例跳过；数字人入口当前隐藏，该状态已明确记录。
+真实 DeepSeek 账户调用、真实三平台发布、生产原生 PostgreSQL 和实际 Docker 部署仍需部署环境单独验收。本包不宣称这些已经完成。
+更多证据见 docs/release-0.4.0-rc2.json 与 docs/deepseek-acceptance.json。

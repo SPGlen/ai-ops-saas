@@ -1,0 +1,41 @@
+GitHub 上传与同事 GPT 协作
+日期：2026-10-25
+目标仓库：https://github.com/SPGlen/-
+
+这个仓库应包含展开的 backend、frontend、publisher、docs、scripts 等目录。
+不要只上传 ai-ops-saas-0.4.0-rc2.zip：GPT需要能按文件读取源码；ZIP可作为另外的版本下载附件。
+
+给同事的入口
+
+1. 分享仓库地址，并确认同事的 GitHub 账号有该仓库读取权限。
+2. 同事使用的 ChatGPT / Codex 还需要能访问该仓库。根据其账号支持的功能，连接并授权 GitHub，或把仓库克隆到本地后在 Codex 中打开工程。
+3. 仓库若为私有，单独转发URL或你的聊天分享链接不会自动转移仓库/账号权限。插件支持与具体授权界面以同事自己的账号为准。
+4. 将下面的开场说明发给同事，由他贴给自己的 GPT；让它先确认实际读取到文件，再安排后续工作。
+
+可复制的开场说明
+
+请读取 https://github.com/SPGlen/- 仓库中以下文件：
+README.md、AGENTS.md、docs/GPT_HANDOFF.txt、UPGRADE_0.4.0-rc2.txt、docs/release-0.4.0-rc2.json。
+请先从实际源码确认当前版本、机构/岗位权限、DeepSeek与百炼的分工、运行方式和已实测/待验收范围。
+项目是“知营”，面向教育机构，支持一人兼任多个岗位及多人协作，负责人控制授权。
+后续开发以现有代码和这些文档为准。不要把演示数据、模拟接口测试或PGlite验证说成真实平台/生产验收。
+如果你无法实际读取仓库，请明确说明缺少哪项访问权限，不要凭仓库名字推断实现。
+接下来需要处理的具体需求是：［在这里填写］。
+
+本地上传方式
+
+本次本地准备状态和提交编号见 .local/github-preparation.json，该文件不上传。
+如果已经有 origin，不要重复添加；先检查 git remote -v。
+上传时使用仓库已有默认分支及正常快进提交；不要覆盖无关内容或 force push。
+GitHub身份认证由 Git / 系统凭证管理器完成；不要把访问Token贴入聊天或写进远程URL。
+
+源码与配置
+
+.gitignore 排除 .env、.env.production、数据库、.local、上传资料、Cookie、缓存、依赖目录及测试trace；只允许 .env.example 与 .env.production.example 这两个空模板。
+AGENTS.md 为代码助手提供项目规则，docs/GPT_HANDOFF.txt 提供业务背景和导航。
+真实DeepSeek Key继续由负责人在系统保存，或由平台在服务器配置。不要在GitHub中保存Key。
+历史0.4.0-rc2 ZIP保持原始交付内容；Git协作文档是在该基线上追加，源码文件以Git提交为准。
+
+官方参考（2026-10-25查阅）
+https://learn.chatgpt.com/docs/plugins
+https://learn.chatgpt.com/docs/third-party/github

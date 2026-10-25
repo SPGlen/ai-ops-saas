@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "real_processes": 2,
+  "account_isolation": true,
+  "mcp_handshake": true,
+  "tool_discovery": true,
+  "account_login": false,
+  "real_publish": false,
+  "binary_sha256": "dd6def3618ca4c8ab03643247a360e531eb630b73ccc042e13050796819e5206"
+}

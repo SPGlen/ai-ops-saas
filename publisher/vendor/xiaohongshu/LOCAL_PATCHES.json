@@ -1,0 +1,67 @@
+{
+  "repository": "https://github.com/xpzouying/xiaohongshu-mcp",
+  "commit": "7797fd375aba02dcd33afe143f6bee13e5870859",
+  "original_input_files": 68,
+  "modified_files": [
+    {
+      "path": "go.mod",
+      "original_sha256": "5b55533c87b410667d7787187e97e8059e46914cb7c84b0ac543615fabc711b2",
+      "current_sha256": "9054835eee281f49ddbb0a21cf9567f9c8ee419e81474993bcbdb140a486ee85"
+    },
+    {
+      "path": "go.sum",
+      "original_sha256": "7ef5e4153aef0c38e37d1d56672e1bccf21d5a60c7a65fc5c093e7ae8d57eeb2",
+      "current_sha256": "71d3313a0b591cdfc9c089466bb38976fc22952820e28df321ef958370c467db"
+    },
+    {
+      "path": "main.go",
+      "original_sha256": "05628b4e33e3438c9c73a23f77b34dcedacd0d6a01f2d91f7c1d1935be54f2d4",
+      "current_sha256": "5cbf3a03962703ff55a0f810e6e36e5e6da06ab9ada6580ca94e417706678d41"
+    },
+    {
+      "path": "mcp_handlers.go",
+      "original_sha256": "ba4b4d48620f1f3fd3c8260417383f35ac9c2a8bacf4c480af7c4a085580d11c",
+      "current_sha256": "6ee430793c4755d830ba930a2f9360ac9330004deb26bc0a3ff1dcbd0abb022b"
+    },
+    {
+      "path": "service.go",
+      "original_sha256": "7946b0d2571328e4a80ef73a783263181e95471c3241331336c4748181e15c7c",
+      "current_sha256": "4fa687017451b0bf5e6ed162ba469434cf4cda220d65ade486a4b54af83d41d8"
+    },
+    {
+      "path": "browser/browser.go",
+      "original_sha256": "6fc7c380f234dc24af631bd71ae5fa668e85e18eb2a55c9db1282b0ead235c01",
+      "current_sha256": "43e7d425e6a1ff1e61aabf5af6001762c230a8d2b2978ec28b175447bda74ee4"
+    },
+    {
+      "path": "browser/browser_download.go",
+      "original_sha256": "250ab35bc6fc6dfc2a83e6f4292a80d5ae1345cbd9df6c57b1a0376f7c7a85bd",
+      "current_sha256": "bae1b6ba2451c015b258803ab7f96d38cd4e77d023f80965cefa889a1989362a"
+    },
+    {
+      "path": "cookies/cookies.go",
+      "original_sha256": "878afec64d840c8340c5f9586f85989e7401846f83f948f62c50a3a9a2746d8c",
+      "current_sha256": "9128eb6c56b821afc300fc75e2f506079eb7195d45e6cdf2848a30cb9283a837"
+    },
+    {
+      "path": "cookies/cookies_test.go",
+      "original_sha256": "16062eeb294e5ddcd8d8078a12708d5e5d5ce994cc1e029a18e201de1bc8672b",
+      "current_sha256": "3fec5485a22b689198f908c4facb4a85d8242a20bd26e0dd3deffb3b08faa5ac"
+    }
+  ],
+  "added_files": [
+    {
+      "path": "managedbrowser/browser.go",
+      "sha256": "edba85bbb3bf1fb0a077805112d88c052e200fa33d1b3b8677b399825eb73d8b"
+    }
+  ],
+  "removed_files": [],
+  "changes": [
+    "Require per-process bearer token and loopback binding",
+    "Require an absolute account-specific cookies path",
+    "Use managed standard Chromium with sandbox enabled; disable upstream browser download and fingerprint changes",
+    "Return structured login identity for account-bound verification",
+    "Upgrade MCP Go SDK and vulnerable network/crypto dependencies; exact versions in go.mod/go.sum"
+  ],
+  "provenance": "SOURCE.json records original input hashes; LOCAL_PATCHES.json records current local differences. The user download directory was preserved."
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "repository": "fastapi/full-stack-fastapi-template",
+    "commit": "b1125d8839482cb7bbae603ddc6d0081bf87532e",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "repository": "pydantic/pydantic-ai",
+    "commit": "19b1eafbbef19c8891666576c438ae9e0d90ef16",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "repository": "xpzouying/xiaohongshu-mcp",
+    "commit": "7797fd375aba02dcd33afe143f6bee13e5870859",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "repository": "dreammis/social-auto-upload",
+    "commit": "0012d2c355f88f683cc38dde2a2db209e14091bc",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "repository": "langbot-app/LangBot",
+    "commit": "4a95a16801d5a3c467909b319c7fc0a29988cf78",
+    "retrieved": "2026-10-20"
+  },
+  {
+    "repository": "PaddlePaddle/PaddleOCR",
+    "commit": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+    "retrieved": "2026-10-20"
+  }
+]

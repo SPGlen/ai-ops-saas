@@ -1,0 +1,107 @@
+{
+  "version": "0.3.1-rc1",
+  "generated_at": "2026-10-22T11:55:38.812380+00:00",
+  "formal_delivery_accepted": false,
+  "api": {
+    "tests": 132,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 22,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "database": "isolated SQLite, synthetic fixtures"
+  },
+  "migration": {
+    "status": "passed",
+    "engine": "PGlite PostgreSQL WASM",
+    "native_postgresql": false,
+    "alembic_offline_sql": true,
+    "legacy_operator_migration": true,
+    "legacy_role_preserved": true,
+    "journal_preserved": true,
+    "rls_tables": 39,
+    "revision": "0004_capabilities"
+  },
+  "backup_restore": {
+    "status": "passed",
+    "engine": "SQLite development restore",
+    "native_postgresql": false,
+    "original_unchanged": true,
+    "immutable_tables": {
+      "business_events": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "studio_versions": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "report_snapshots": {
+        "count": 4,
+        "sha256": "1dc676c6690ee8110c3bc9d94472c3defc339d90e43d37d1c404ddaaed1cc41e"
+      },
+      "lesson_rosters": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "predictions": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "content_versions": {
+        "count": 10,
+        "sha256": "825f3d5ce792fd142d4996de9253b131507b1fe3ddf36d0d39f3daf4791d9f67"
+      },
+      "ledger_entries": {
+        "count": 22,
+        "sha256": "5366f6c3bbdd031278bb733f2e36ba97c9f97521858f6c0eceb75d80200d4b92"
+      },
+      "credit_entries": {
+        "count": 21,
+        "sha256": "13b85c56fe45816c4fb5a75802650a2c0abfd0112adeb15f11b8a81aaff9eb13"
+      },
+      "audit_events": {
+        "count": 170,
+        "sha256": "2f6a3b4110a3f6c64f08f0518e95dbd06939953bde2d6cfd41c031862c8afafc"
+      },
+      "settlements": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "authorization_migration": "passed"
+  },
+  "behavior": {
+    "multi_role_members": true,
+    "owner_managed_authorization": true,
+    "independent_scheduler": true,
+    "aggregate_revenue_without_finance_detail": true,
+    "encrypted_scoped_family_feedback": true,
+    "receipt_preview_and_download": true,
+    "automatic_weekly_monthly_snapshots": true,
+    "deterministic_operating_summary": true,
+    "llm_report_interpretation": false
+  },
+  "external_acceptance": {
+    "native_postgresql": false,
+    "docker_images": false,
+    "real_wecom_push": false,
+    "website_sso": false,
+    "real_social_accounts": false,
+    "aliyun_deployment": false
+  },
+  "unchanged_dependency_versions": true,
+  "legacy_evidence": "operations-acceptance.json (0.3.0 historical checks)",
+  "evidence_sha256": {
+    "management-full-api-tests.xml": "8db02601767c09c12e78f64ddbe85a87acc43ddcaddf2943c8c99c0eeb52bf11",
+    "e2e-report.json": "a6fdcb9bed36dd6f4a44d65791cf1b64bbd3360867c2f24dfa095057b60d3a58",
+    "management-migration-test.json": "3fd6509330ba6254b34370d03494506f21675ea4fefa081627428dc1eecf0e7b",
+    "management-backup-restore.json": "0868ed27151a115a54f99a0809559fb08cace94c8a58b01d2b655f0fffa1ca76",
+    "migration-upgrade-0004.sql": "dee4e1516cccc6d0e495774c4e57e7b2bdb2cab423e4ae7c3683fb00e1c70e97",
+    "openapi.json": "26b52802e4626cec8455c3242bd6a54660d58d27c23b193867d5ebfc99a02098"
+  }
+}

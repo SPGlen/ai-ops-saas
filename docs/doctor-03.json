@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "check": "runtime_configuration",
+      "status": "passed",
+      "detail": "development"
+    },
+    {
+      "check": "database",
+      "status": "passed",
+      "detail": 1
+    },
+    {
+      "check": "ffmpeg",
+      "status": "passed",
+      "detail": "E:\\Tools\\bin\\ffmpeg.CMD"
+    },
+    {
+      "check": "ffprobe",
+      "status": "passed",
+      "detail": "E:\\Tools\\bin\\ffprobe.CMD"
+    },
+    {
+      "check": "chinese_font",
+      "status": "passed",
+      "detail": "Microsoft YaHei"
+    }
+  ],
+  "external_model": "not_called",
+  "publishing_accounts": "not_called"
+}

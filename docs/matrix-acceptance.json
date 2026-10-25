@@ -1,0 +1,181 @@
+{
+  "version": "0.4.0-rc1",
+  "generated_at": "2026-10-22T16:41:44.380263+00:00",
+  "formal_delivery_accepted": false,
+  "api": {
+    "tests": 146,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "matrix_feature_tests": {
+    "tests": 14,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "mcp_contract_tests": {
+    "tests": 6,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "real_mcp_protocol": {
+    "status": "passed",
+    "real_processes": 2,
+    "account_isolation": true,
+    "mcp_handshake": true,
+    "tool_discovery": true,
+    "account_login": false,
+    "real_publish": false,
+    "binary_sha256": "dd6def3618ca4c8ab03643247a360e531eb630b73ccc042e13050796819e5206"
+  },
+  "browser": {
+    "passed": 24,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "database": "isolated SQLite fixtures"
+  },
+  "migration": {
+    "status": "passed",
+    "engine": "PGlite PostgreSQL WASM",
+    "native_postgresql": false,
+    "rls_tables": 48,
+    "revision": "0005_media_matrix",
+    "legacy_drafts_migrated": true,
+    "journals_preserved": true,
+    "cross_tenant_fk_blocked": true,
+    "rls_isolation": true,
+    "immutable_plan_versions": true
+  },
+  "media": {
+    "generated_at": "2026-10-22T16:12:35.440090+00:00",
+    "renderer": "real FFmpeg",
+    "inputs": "synthetic silent narration and generated color clip",
+    "real_provider_test": false,
+    "cases": [
+      {
+        "mode": "program",
+        "status": "passed",
+        "duration_seconds": 47.0,
+        "bytes": 174099,
+        "audio_and_video": true
+      },
+      {
+        "mode": "aigc",
+        "status": "passed",
+        "duration_seconds": 47.0,
+        "bytes": 156180,
+        "audio_and_video": true
+      },
+      {
+        "mode": "mixed",
+        "status": "passed",
+        "duration_seconds": 47.0,
+        "bytes": 168126,
+        "audio_and_video": true
+      }
+    ]
+  },
+  "backup_restore": {
+    "status": "passed",
+    "engine": "SQLite development",
+    "native_postgresql": false,
+    "source_backup": ".local\\backups\\matrix-20261022-232714\\ops.db",
+    "tables": {
+      "business_events": {
+        "preserved_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      "studio_versions": {
+        "preserved_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      "report_snapshots": {
+        "preserved_rows": 8,
+        "all_original_rows_unchanged": true
+      },
+      "lesson_rosters": {
+        "preserved_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      "predictions": {
+        "preserved_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      "content_versions": {
+        "preserved_rows": 10,
+        "all_original_rows_unchanged": true
+      },
+      "ledger_entries": {
+        "preserved_rows": 22,
+        "all_original_rows_unchanged": true
+      },
+      "credit_entries": {
+        "preserved_rows": 21,
+        "all_original_rows_unchanged": true
+      },
+      "audit_events": {
+        "preserved_rows": 170,
+        "all_original_rows_unchanged": true
+      },
+      "settlements": {
+        "preserved_rows": 0,
+        "all_original_rows_unchanged": true
+      }
+    },
+    "restored_backup_integrity": "ok",
+    "immutable_tables_restored": 11
+  },
+  "dependencies": {
+    "new_runtime_dependencies": false,
+    "installed_dependency_check": "pip check passed",
+    "fresh_vulnerability_database_scan": false
+  },
+  "features": {
+    "same_platform_multiple_accounts": true,
+    "role_wide_institution_scope": true,
+    "immutable_plan_versions": true,
+    "frozen_explicit_account_targets": true,
+    "matrix_shared_topic_single_charge": true,
+    "per_account_content_and_predictions": true,
+    "step_and_run_cost_breakdown": true,
+    "manual_and_authorized_auto_publishing": true,
+    "billing_unknown_result_no_resubmission": true,
+    "explicit_safe_account_step_retry": true,
+    "real_rendering_three_modes": true,
+    "scoped_sse_and_calendar": true,
+    "brand_scoped_rubric_calibration": true,
+    "consultation_paused": true
+  },
+  "external_acceptance": {
+    "real_aliyun_text_image_speech_video": false,
+    "real_xiaohongshu_publish_receipt": false,
+    "real_douyin_publish_receipt": false,
+    "real_channels_publish_receipt": false,
+    "real_t_plus_3_metrics": false,
+    "real_wecom_notice": false,
+    "native_postgresql": false,
+    "docker_runtime_or_image_scan": false,
+    "aliyun_deployment": false
+  },
+  "account_identity": {
+    "xiaohongshu": "MCP self-profile ID readback implemented; real account pending",
+    "douyin": "explicit public-profile link observer implemented; real creator DOM pending",
+    "channels": "stable account ID readback pending real-account adaptation; unattended publishing blocked"
+  },
+  "upstream": "existing fixed vendor commits; no personal workspace data or credentials imported",
+  "evidence_sha256": {
+    "matrix-api-tests.xml": "08f95bd983685ae3431cf5ef46de10aabb3690aa205d81b2007651bbb278d503",
+    "matrix-feature-tests.xml": "ffde02c42e51e736033de63613e8904685ee28f178eaea6abb691ff20c3b7080",
+    "matrix-mcp-tests.xml": "0e1bba5b90536aa34a3d0d587ab08fda97ddfc52833d4c9b2d3f56cfeb9f28ae",
+    "matrix-migration-test.json": "29dd96c05fc375f902e64fce5a8fb21e66636f487d711406234c51e13548853f",
+    "matrix-media-test.json": "aaaefb8ad5fa30b39701d49e029c00639eeee90a68e32db5a7054d051cdd6e0a",
+    "matrix-backup-restore.json": "75a22644a1fbce309d1dc8324dc68264d39c8348d183a984f5600f10b6ba1326",
+    "e2e-report.json": "6a2758079caf985e1fbb2b5391d8b1739b1a1aa6b355b86bd5cbbd067afb896f",
+    "xhs-runtime-report.json": "d832105b4beba10b9f75b5b41987c7889d1a05a4342fa1b28668f6d042cfe3d0",
+    "migration-upgrade-0005.sql": "be1a473744e68be9e2b692a9aac0fc044043ba5651591e102cf851e3dafd267c",
+    "openapi.json": "d4cbb624b4b29ed169a3ff1ca6c648cba4078eb1c183a4ff300108be6a8655c9"
+  }
+}

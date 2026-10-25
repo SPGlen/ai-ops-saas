@@ -1,0 +1,31 @@
+name: care-ops-publisher
+services:
+  gateway:
+    build: {context: .., dockerfile: publisher/Dockerfile.gateway}
+    image: care-ops-publisher-gateway:0.4.0-rc1
+    ports: ["127.0.0.1:8900:8900"]
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs: ["/tmp:rw,nosuid,size=64m"]
+    environment:
+      PUB_MASTER_KEY: ${OPS_PUBLISHER_TOKEN:?configure shared gateway secret}
+      PUB_BROWSER_IMAGE: ${PUB_BROWSER_IMAGE:-care-ops-publisher:0.4.0-rc1}
+      PUB_DOCKER_SOCKET: /run/docker.sock
+      PUB_NETWORK: ops_browser
+      PUB_ALLOW_REPLIES: ${PUB_ALLOW_REPLIES:-false}
+      PUB_ALLOW_LIVE: ${PUB_ALLOW_LIVE:-false}
+      PUB_BROWSER_MAX_CONTEXTS: ${PUB_BROWSER_MAX_CONTEXTS:-2}
+      PUB_XHS_MAX_ACTIVE: ${PUB_XHS_MAX_ACTIVE:-2}
+      PUB_MAX_TENANTS: ${PUB_MAX_TENANTS:-20}
+    volumes:
+      - ${ROOTLESS_DOCKER_SOCKET:?set rootless Docker socket}:/run/docker.sock
+      - ./chromium-seccomp.json:/etc/ops/chromium-seccomp.json:ro
+    networks: [browser]
+    mem_limit: 512m
+    pids_limit: 64
+    restart: unless-stopped
+networks:
+  browser:
+    name: ops_browser

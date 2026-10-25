@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "sample": "synthetic printed Chinese admissions table",
+  "engine": "PaddleOCR 3.7.0 / PaddlePaddle 3.3.1 CPU",
+  "mkldnn": false,
+  "formats": [
+    {
+      "format": "png",
+      "pages": 1,
+      "rows": 1,
+      "confidence": 0.9805561900138855,
+      "seconds": 35.2
+    },
+    {
+      "format": "pdf",
+      "pages": 1,
+      "rows": 1,
+      "confidence": 0.9291032552719116,
+      "seconds": 30.9
+    }
+  ],
+  "fields_verified": [
+    "student_name",
+    "contact",
+    "name"
+  ],
+  "manual_review_required": true,
+  "handwriting_verified": false
+}

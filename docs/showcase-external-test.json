@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-23T09:29:20.595Z",
+  "url": "https://keys-utility-biggest-faqs.trycloudflare.com",
+  "expires_at": "2026-10-23T17:28:39.126095+00:00",
+  "https": true,
+  "secure_cookie": true,
+  "normal_role_login": true,
+  "media_playback": true,
+  "teacher_scope": true,
+  "access_code_required": true,
+  "web_access_gate": true,
+  "bare_url_entry": true,
+  "native_auth_challenges": 0,
+  "synthetic_data": true,
+  "real_calls": false,
+  "errors": []
+}

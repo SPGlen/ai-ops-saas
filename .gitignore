@@ -1,0 +1,55 @@
+# Private configuration. Only empty, documented templates may be tracked.
+.env*
+!.env.example
+!.env.production.example
+*.local.env
+
+# Dependencies, caches and generated code/build outputs.
+.venv/
+venv/
+node_modules/
+frontend/dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Runtime state, user uploads, backups and browser credentials.
+.local/
+.upstream/
+backups/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.enc
+*.pem
+*.p12
+*.pfx
+*.log
+cookies.json
+storage_state.json
+storage-state.json
+playwright/.auth/
+
+# Test traces and local artifacts.
+test-results/
+playwright-report/
+/tmp/
+/SOURCE_MANIFEST.json
+*.zip
+*.zip.sha256
+*.verification.json
+/{console.error*
+
+# Include only the reviewed user manual from the local output directory.
+/output/*
+!/output/pdf/
+/output/pdf/*
+!/output/pdf/知营使用说明书与自媒体账号接入指南.pdf
+
+.DS_Store
+Thumbs.db

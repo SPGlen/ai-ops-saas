@@ -1,0 +1,7 @@
+{$OPS_DOMAIN} {
+    encode zstd gzip
+    request_body {
+        max_size 27MB
+    }
+    reverse_proxy backend:8000
+}

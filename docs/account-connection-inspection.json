@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-23T13:32:25.207Z",
+  "environment": "local enterprise demo",
+  "health": {
+    "status": "ok",
+    "environment": "development",
+    "database": "sqlite",
+    "tasks": "demo",
+    "live_publish": false,
+    "model_configured": false,
+    "publisher_configured": false,
+    "payment_enabled": false,
+    "ocr_enabled": false
+  },
+  "features": {
+    "consultation": false,
+    "course_packages": false,
+    "demo_mode": true
+  },
+  "account_count": 7,
+  "connected_accounts": 0,
+  "identity_verified_accounts": 0,
+  "login_attempt": {
+    "status": 409,
+    "body": {
+      "detail": {
+        "code": "DEMO_EXTERNAL_DISABLED",
+        "message": "演示环境仅操作虚构业务数据；真实 AI 调用、账号登录、发布、通知及凭证配置暂不开放。"
+      }
+    }
+  },
+  "account_form_fields": [
+    "账号备注",
+    "平台小红书抖音视频号",
+    "品牌档案请选择品牌青禾AI · 中心校区青禾AI · 社区课堂",
+    "账号定位 / 校区 / 栏目",
+    "行动引导语",
+    "默认内容形式按平台默认图文卡片视频",
+    "账号月预算（元）",
+    "暂停该账号的新任务"
+  ],
+  "external_publish_attempted": false,
+  "external_reply_attempted": false,
+  "errors": []
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "image": "python:3.12-slim-bookworm",
+    "digest": "sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258"
+  },
+  {
+    "image": "node:24-bookworm-slim",
+    "digest": "sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5"
+  },
+  {
+    "image": "pgvector/pgvector:pg17",
+    "digest": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+  },
+  {
+    "image": "valkey/valkey:8-alpine",
+    "digest": "sha256:081c2f5cb575efc901aa80ff9cdbd1ec6a301682fd35e1ebb4b0990a4a4a8507"
+  },
+  {
+    "image": "caddy:2-alpine",
+    "digest": "sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f"
+  },
+  {
+    "image": "mcr.microsoft.com/playwright/python:v1.64.0-noble",
+    "digest": "sha256:684df257a1fa0ef3fa288239819984008f560e8f8db5b635ee9e2a50cbcd2e23"
+  }
+]

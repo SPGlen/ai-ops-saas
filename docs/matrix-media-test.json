@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-10-22T16:12:35.440090+00:00",
+  "renderer": "real FFmpeg",
+  "inputs": "synthetic silent narration and generated color clip",
+  "real_provider_test": false,
+  "cases": [
+    {
+      "mode": "program",
+      "status": "passed",
+      "duration_seconds": 47.0,
+      "bytes": 174099,
+      "audio_and_video": true
+    },
+    {
+      "mode": "aigc",
+      "status": "passed",
+      "duration_seconds": 47.0,
+      "bytes": 156180,
+      "audio_and_video": true
+    },
+    {
+      "mode": "mixed",
+      "status": "passed",
+      "duration_seconds": 47.0,
+      "bytes": 168126,
+      "audio_and_video": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "engine": "SQLite development",
+  "native_postgresql": false,
+  "source_backup": ".local\\backups\\matrix-20261022-232714\\ops.db",
+  "tables": {
+    "business_events": {
+      "preserved_rows": 0,
+      "all_original_rows_unchanged": true
+    },
+    "studio_versions": {
+      "preserved_rows": 0,
+      "all_original_rows_unchanged": true
+    },
+    "report_snapshots": {
+      "preserved_rows": 8,
+      "all_original_rows_unchanged": true
+    },
+    "lesson_rosters": {
+      "preserved_rows": 0,
+      "all_original_rows_unchanged": true
+    },
+    "predictions": {
+      "preserved_rows": 0,
+      "all_original_rows_unchanged": true
+    },
+    "content_versions": {
+      "preserved_rows": 10,
+      "all_original_rows_unchanged": true
+    },
+    "ledger_entries": {
+      "preserved_rows": 22,
+      "all_original_rows_unchanged": true
+    },
+    "credit_entries": {
+      "preserved_rows": 21,
+      "all_original_rows_unchanged": true
+    },
+    "audit_events": {
+      "preserved_rows": 170,
+      "all_original_rows_unchanged": true
+    },
+    "settlements": {
+      "preserved_rows": 0,
+      "all_original_rows_unchanged": true
+    }
+  },
+  "restored_backup_integrity": "ok",
+  "immutable_tables_restored": 11
+}

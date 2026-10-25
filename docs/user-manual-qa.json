@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-23",
+  "pdf_pages": 14,
+  "pdf_bookmarks": 14,
+  "png_pages_reviewed": 14,
+  "font_embedded": true,
+  "html_offline_navigation": true,
+  "html_mobile_overflow": false,
+  "credentials_found": false,
+  "workflow_migration_performed": false,
+  "real_publish_performed": false,
+  "real_reply_performed": false,
+  "business_configuration_changed": false,
+  "outputs": {
+    "output\\pdf\\知营使用说明书与自媒体账号接入指南.pdf": {
+      "bytes": 676385,
+      "sha256": "b209ae2a2760778d7ad8efe5ea31614ce10d350c51c271252acb1db1bb995602"
+    },
+    "docs\\USER_MANUAL.html": {
+      "bytes": 347705,
+      "sha256": "d164b8430069b2244eed54761b64e2a96843dcbf69b15e15440f38b5347a5d76"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+  "\nCREATE TABLE member_invitations (\n\tid VARCHAR NOT NULL, \n\ttenant_id VARCHAR NOT NULL, \n\tcreated_at TIMESTAMP WITH TIME ZONE NOT NULL, \n\temail VARCHAR NOT NULL, \n\troles JSON NOT NULL, \n\tinviter_id VARCHAR NOT NULL, \n\texpires_at TIMESTAMP WITH TIME ZONE NOT NULL, \n\tused_at TIMESTAMP WITH TIME ZONE, \n\trevoked BOOLEAN NOT NULL, \n\tPRIMARY KEY (id), \n\tFOREIGN KEY(tenant_id) REFERENCES tenants (id)\n)\n\n",
+  "CREATE INDEX ix_member_invitations_tenant_id ON member_invitations (tenant_id)",
+  "ALTER TABLE member_invitations ENABLE ROW LEVEL SECURITY",
+  "ALTER TABLE member_invitations FORCE ROW LEVEL SECURITY",
+  "CREATE POLICY tenant_isolation ON member_invitations USING (tenant_id = current_setting('ops.tenant_id', true)) WITH CHECK (tenant_id = current_setting('ops.tenant_id', true))",
+  "GRANT SELECT,INSERT,UPDATE,DELETE ON member_invitations TO ops_app",
+  "\nCREATE TABLE social_events (\n\tid VARCHAR NOT NULL, \n\ttenant_id VARCHAR NOT NULL, \n\tcreated_at TIMESTAMP WITH TIME ZONE NOT NULL, \n\taccount_id VARCHAR NOT NULL, \n\texternal_id VARCHAR NOT NULL, \n\tkind VARCHAR NOT NULL, \n\tthread_id VARCHAR NOT NULL, \n\twork_id VARCHAR NOT NULL, \n\tsender_id VARCHAR NOT NULL, \n\tsender_name VARCHAR NOT NULL, \n\tbody VARCHAR NOT NULL, \n\tconversation_id VARCHAR NOT NULL, \n\tmetadata_json JSON NOT NULL, \n\tPRIMARY KEY (id), \n\tUNIQUE (tenant_id, account_id, external_id), \n\tUNIQUE (id, tenant_id), \n\tFOREIGN KEY(account_id, tenant_id) REFERENCES social_accounts (id, tenant_id), \n\tFOREIGN KEY(conversation_id, tenant_id) REFERENCES conversations (id, tenant_id), \n\tFOREIGN KEY(tenant_id) REFERENCES tenants (id)\n)\n\n",
+  "CREATE INDEX ix_social_events_tenant_id ON social_events (tenant_id)",
+  "ALTER TABLE social_events ENABLE ROW LEVEL SECURITY",
+  "ALTER TABLE social_events FORCE ROW LEVEL SECURITY",
+  "CREATE POLICY tenant_isolation ON social_events USING (tenant_id = current_setting('ops.tenant_id', true)) WITH CHECK (tenant_id = current_setting('ops.tenant_id', true))",
+  "GRANT SELECT,INSERT,UPDATE,DELETE ON social_events TO ops_app",
+  "\nCREATE TABLE social_replies (\n\tid VARCHAR NOT NULL, \n\ttenant_id VARCHAR NOT NULL, \n\tcreated_at TIMESTAMP WITH TIME ZONE NOT NULL, \n\taccount_id VARCHAR NOT NULL, \n\tevent_id VARCHAR NOT NULL, \n\tconversation_id VARCHAR NOT NULL, \n\trequest_id VARCHAR NOT NULL, \n\tactor_id VARCHAR NOT NULL, \n\tautomatic BOOLEAN NOT NULL, \n\tdraft_only BOOLEAN NOT NULL, \n\tbody VARCHAR NOT NULL, \n\tstatus VARCHAR NOT NULL, \n\texternal_id VARCHAR NOT NULL, \n\terror VARCHAR NOT NULL, \n\tsources JSON NOT NULL, \n\tupdated_at TIMESTAMP WITH TIME ZONE NOT NULL, \n\tPRIMARY KEY (id), \n\tUNIQUE (tenant_id, request_id), \n\tFOREIGN KEY(account_id, tenant_id) REFERENCES social_accounts (id, tenant_id), \n\tFOREIGN KEY(event_id, tenant_id) REFERENCES social_events (id, tenant_id), \n\tFOREIGN KEY(conversation_id, tenant_id) REFERENCES conversations (id, tenant_id), \n\tFOREIGN KEY(tenant_id) REFERENCES tenants (id)\n)\n\n",
+  "CREATE INDEX ix_social_replies_tenant_id ON social_replies (tenant_id)",
+  "ALTER TABLE social_replies ENABLE ROW LEVEL SECURITY",
+  "ALTER TABLE social_replies FORCE ROW LEVEL SECURITY",
+  "CREATE POLICY tenant_isolation ON social_replies USING (tenant_id = current_setting('ops.tenant_id', true)) WITH CHECK (tenant_id = current_setting('ops.tenant_id', true))",
+  "GRANT SELECT,INSERT,UPDATE,DELETE ON social_replies TO ops_app"
+]

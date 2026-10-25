@@ -1,0 +1,203 @@
+{
+  "version": "0.2.0-rc1",
+  "generated_at": "2026-10-21T15:42:18.346142+00:00",
+  "formal_delivery_accepted": false,
+  "api": {
+    "tests": 91,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "mcp_contract": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 12,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "database": "isolated development SQLite; synthetic fixtures; scripts/test-browser.ps1"
+  },
+  "postgres_wasm_rls": {
+    "engine": "PGlite PostgreSQL WASM + pgvector",
+    "native_postgresql": false,
+    "checked_at": "2026-10-21T14:48:41.431Z",
+    "checks": 39,
+    "tenant_tables": [
+      "budget_buckets",
+      "knowledge_chunks",
+      "media_jobs",
+      "rubric_candidates",
+      "publish_jobs",
+      "records",
+      "social_replies",
+      "agent_runs",
+      "audit_events",
+      "assets",
+      "conversations",
+      "metric_snapshots",
+      "integrations",
+      "social_accounts",
+      "usage_records",
+      "webhook_receipts",
+      "content_versions",
+      "credit_entries",
+      "messages",
+      "ledger_entries",
+      "contents",
+      "predictions",
+      "settlements",
+      "member_invitations",
+      "social_events"
+    ],
+    "ddl_statements": 132,
+    "status": "passed"
+  },
+  "migration": {
+    "status": "passed",
+    "engine": "PGlite PostgreSQL WASM",
+    "native_postgresql": false,
+    "alembic_offline_sql": true,
+    "legacy_operator_migration": true,
+    "legacy_role_preserved": true,
+    "journal_preserved": true,
+    "rls_tables": 25,
+    "revision": "0002_staff_social"
+  },
+  "development_restore": {
+    "status": "passed",
+    "engine": "SQLite development only",
+    "tables": 32,
+    "row_counts": {
+      "users": 23,
+      "tenants": 2,
+      "platform_settings": 1,
+      "rate_buckets": 6,
+      "memberships": 24,
+      "auth_sessions": 71,
+      "email_tokens": 0,
+      "records": 101,
+      "audit_events": 169,
+      "integrations": 0,
+      "assets": 0,
+      "contents": 10,
+      "agent_runs": 0,
+      "media_jobs": 0,
+      "social_accounts": 3,
+      "metric_snapshots": 0,
+      "usage_records": 0,
+      "budget_buckets": 0,
+      "conversations": 13,
+      "knowledge_chunks": 2,
+      "webhook_receipts": 0,
+      "ledger_entries": 22,
+      "credit_entries": 21,
+      "content_versions": 10,
+      "messages": 34,
+      "predictions": 0,
+      "publish_jobs": 0,
+      "rubric_candidates": 0,
+      "settlements": 0,
+      "member_invitations": 4,
+      "social_events": 3,
+      "social_replies": 0
+    },
+    "checks": [
+      "manifest SHA-256 verification",
+      "new target preserved source",
+      "SQLite integrity_check",
+      "all table row counts",
+      "cash ledger sum",
+      "credit ledger sum"
+    ],
+    "native_postgresql_restore": "not_run",
+    "cloud_objects_restore": "not_run"
+  },
+  "xhs_real_process_protocol": {
+    "status": "passed",
+    "real_processes": 2,
+    "account_isolation": true,
+    "mcp_handshake": true,
+    "tool_discovery": true,
+    "account_login": false,
+    "real_publish": false,
+    "binary_sha256": "dd6def3618ca4c8ab03643247a360e531eb630b73ccc042e13050796819e5206"
+  },
+  "xhs_selected_go_tests": {
+    "passed_tests": 12,
+    "passed_subtests": 36,
+    "failed": 0,
+    "scope": "go test ./... -run 'Test.*(Parse|Cookies|Middleware|Routes|Validate|Mask|Title)' -count=1; selected unit tests only"
+  },
+  "source_verification": {
+    "commit": "7797fd375aba02dcd33afe143f6bee13e5870859",
+    "verified_original_files": 68,
+    "different_files": [],
+    "not_in_commit": []
+  },
+  "dependencies": {
+    "python_installed_known_vulnerabilities": 0,
+    "publisher_lock_known_vulnerabilities": 0,
+    "gateway_lock_known_vulnerabilities": 0,
+    "frontend": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "go": {
+      "windows": {
+        "reachable_findings": 0,
+        "module_only_findings": [
+          "GO-2026-5932"
+        ],
+        "report": "xhs-go-vuln-report.jsonl"
+      },
+      "linux": {
+        "reachable_findings": 0,
+        "module_only_findings": [
+          "GO-2026-5932"
+        ],
+        "report": "xhs-go-linux-vuln-report.jsonl"
+      }
+    },
+    "development_tool_fix": {
+      "tool": "uv",
+      "from": "0.13.3",
+      "to": "0.13.4",
+      "advisory": "GHSA-hq85-5cpj-mr62",
+      "url": "https://github.com/astral-sh/uv/security/advisories/GHSA-hq85-5cpj-mr62"
+    }
+  },
+  "actual_external_publications": {
+    "xiaohongshu": [],
+    "douyin": [],
+    "channels": []
+  },
+  "actual_external_replies": [],
+  "live_publish_default": false,
+  "live_replies_default": false,
+  "not_verified": [
+    "native_postgresql_and_alembic",
+    "linux_docker_images_and_scan",
+    "real_bailian_models",
+    "real_ocr_model",
+    "xiaohongshu_real_login_publish_comments_metrics",
+    "douyin_real_publish_official_comments_permissions",
+    "douyin_private_message_schema_and_send",
+    "channels_real_login_publish_metrics",
+    "wecom_official_account",
+    "cloud_s3_restore",
+    "production_upgrade_and_rollback"
+  ],
+  "notes": [
+    "The current report records automated tests and real MCP processes, not real social account acceptance.",
+    "Unsupported or unverified messaging uses explicit manual processing. No simulated interaction is labeled as a real external event.",
+    "PostgreSQL WASM tests do not replace native PostgreSQL and Docker production verification."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "engine": "SQLite development restore",
+  "native_postgresql": false,
+  "original_unchanged": true,
+  "immutable_tables": {
+    "business_events": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "studio_versions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "report_snapshots": {
+      "count": 4,
+      "sha256": "1dc676c6690ee8110c3bc9d94472c3defc339d90e43d37d1c404ddaaed1cc41e"
+    },
+    "lesson_rosters": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "predictions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "content_versions": {
+      "count": 10,
+      "sha256": "825f3d5ce792fd142d4996de9253b131507b1fe3ddf36d0d39f3daf4791d9f67"
+    },
+    "ledger_entries": {
+      "count": 22,
+      "sha256": "5366f6c3bbdd031278bb733f2e36ba97c9f97521858f6c0eceb75d80200d4b92"
+    },
+    "credit_entries": {
+      "count": 21,
+      "sha256": "13b85c56fe45816c4fb5a75802650a2c0abfd0112adeb15f11b8a81aaff9eb13"
+    },
+    "audit_events": {
+      "count": 170,
+      "sha256": "2f6a3b4110a3f6c64f08f0518e95dbd06939953bde2d6cfd41c031862c8afafc"
+    },
+    "settlements": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "authorization_migration": "passed"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "care-ops-web",
+  "version": "0.4.0-rc2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5188",
+    "build": "tsc --noEmit && vite build",
+    "test": "playwright test",
+    "generate-client": "openapi-typescript ../docs/openapi.json -o src/generated/api.d.ts"
+  },
+  "dependencies": {
+    "@xyflow/react": "12.12.0",
+    "lucide-react": "0.487.0",
+    "openapi-fetch": "0.17.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "recharts": "3.10.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10",
+    "@electric-sql/pglite-pgvector": "0.0.11",
+    "@playwright/test": "1.63.0",
+    "@types/react": "18.3.28",
+    "@types/react-dom": "18.3.7",
+    "@vitejs/plugin-react": "4.7.0",
+    "openapi-typescript": "7.13.0",
+    "prettier": "3.9.10",
+    "swagger-ui-dist": "5.34.0",
+    "typescript": "5.9.3",
+    "vite": "6.4.4"
+  }
+}

@@ -1,0 +1,1 @@
+window.addEventListener('load',()=>SwaggerUIBundle({url:'/api/openapi.json',dom_id:'#swagger-ui',persistAuthorization:false,requestInterceptor:request=>{const token=document.cookie.split('; ').find(v=>v.startsWith('ops_csrf='))?.split('=').slice(1).join('=');if(token)request.headers['X-CSRF-Token']=decodeURIComponent(token);return request;}}));
